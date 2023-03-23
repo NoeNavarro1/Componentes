@@ -1,22 +1,40 @@
 import 'package:flutter/material.dart';
 
-class InputsScreen extends StatelessWidget {
-  const InputsScreen({super.key});
+class InputsScreens extends StatefulWidget {
+  const InputsScreens({super.key});
 
   @override
+  State<InputsScreens> createState() => _InputsScreensState();
+}
+
+class _InputsScreensState extends State<InputsScreens> {
+  String _userName = '';
+  @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title:const Text('Entradas de datos por el usuario'),
+        title: const Text('Entradas de datos por el usuario'),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10.0,S
-          vertical: 20.0),
-          children: [
-            _crearEntrada(),
-          ],
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+        children: [
+          _crearEntrada(),
+        ],
+      ),
     );
+  }
+
+  Widget _crearEntrada() {
+    return TextField(
+        autofocus: true,
+        textCapitalization: TextCapitalization.words,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
+        ),
+        onChanged: (valor) {
+          _userName = valor;
+          print(_userName);
+        }
+        );
   }
 }
