@@ -25,6 +25,6 @@ class MyApp extends StatelessWidget {
        return MaterialPageRoute(
         builder: (BuildContext context) => const AlertsScreen()); 
       });
-  }
+  } 
 }
 
