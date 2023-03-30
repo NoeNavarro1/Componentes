@@ -34,6 +34,8 @@ class _InputsScreensState extends State<InputsScreens> {
           const Divider(),
           _crearEntradaFecha(),
           const Divider(),
+          _crearDropDown(),
+
         ],
       ),
     );
@@ -171,4 +173,21 @@ class _InputsScreensState extends State<InputsScreens> {
       });
     }
   }
+Widget _crearDropDown(){
+  return DropdownButton(
+    items:const [],
+    onChanged: (opt) {});
+}
+
+List<DropdownMenuItem<String>> getOptionsDropDown(){
+  List<String> _lenguajes = ['Java','PHP','JavaScript','Dart'];
+  List<DropdownMenuItem<String>> lista = List();
+  _lenguajes.forEach((lenguajes) {
+    lista.add(DropdownMenuItem(
+      child: Text(lenguajes),
+      value: lenguajes,
+    ));
+  });
+  return lista;
+}
 }
